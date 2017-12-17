@@ -6,6 +6,7 @@
 
 # Log file
 *.log
+*.log.*
 
 # BlueJ files
 *.ctxt
@@ -120,3 +121,5 @@ fabric.properties
 .idea/
 
 # End of https://www.gitignore.io/api/intellij+all
+
+KeyStore.jks
