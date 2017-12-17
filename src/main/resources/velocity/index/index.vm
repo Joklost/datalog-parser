@@ -7,7 +7,13 @@
 
         <form id="program-form" method="post">
             <div class="row">
-                <label>Datalog Program</label>
+                <div class="nine columns">
+                    <label>Datalog Program</label>
+                </div>
+                <div class="three columns">
+                    <a class="u-pull-right" href="/datalog/user_guide.pdf">User Guide</a>
+                    <a class="u-pull-right" href="https://github.com/Joklost/datalog-parser">Source</a>
+                </div>
                 <textarea class="u-full-width" required="required" name="datalogProgram" id="program-input"></textarea>
             </div>
             <div class="row">
