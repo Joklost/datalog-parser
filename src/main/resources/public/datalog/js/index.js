@@ -1,14 +1,19 @@
 "use strict";
 
 
-let sampleProgram = "edge('A', 'B').\n" +
+let programCache =
+    "/* -- Graph Sample --\n" +
+    " * The previous content of the editor has been cached.\n" +
+    " * press 'Sample' again to return it to the editor.\n" +
+    " */\n" +
+    "\n" +
+    "edge('A', 'B').\n" +
     "edge('B', 'C').\n" +
     "edge('A', 'E').\n" +
     "edge('C', 'D').\n" +
     "edge('D', 'E').\n" +
     "edge('F', 'G').\n" +
     "edge('E', 'G').\n" +
-    "\n" +
     "\n" +
     "node('A').\n" +
     "node('B').\n" +
@@ -43,10 +48,11 @@ $("#parse-program").on("click", function (ev) {
 });
 
 
-
 $("#sample-program").on("click", function (ev) {
     ev.preventDefault();
-    inputEditor.getSession().setValue(sampleProgram);
+    let program = inputEditor.getSession().getValue();
+    inputEditor.getSession().setValue(programCache);
+    programCache = program;
 });
 
 let inputEditor = ace.edit("input");
