@@ -1,0 +1,16 @@
+
+#viewspace {
+    margin-top: 45px;
+}
+
+textarea {
+}
+
+textarea{
+    resize: vertical;
+    min-height: 400px;
+    background: url(https://i.imgur.com/2cOaJ.png) no-repeat local;
+    padding-left: 35px;
+    padding-top: 10px;
+    border-color:#ccc;
+}

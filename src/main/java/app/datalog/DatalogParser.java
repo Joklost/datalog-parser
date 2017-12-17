@@ -24,25 +24,41 @@ public class DatalogParser {
         parser = new Parser();
     }
 
-    public List<String> parse(String program) throws ParserException, EvaluationException {
+    public List<String> parse(String program) {
 
         if (program == null) return null;
-        parser.parse(program);
+
+        List<String> result = new ArrayList<>();
+        try {
+            parser.parse(program);
+        } catch (ParserException e) {
+            result.add(e.toString());
+            return result;
+        }
         Map<IPredicate, IRelation> facts = parser.getFacts();
         List<IRule> rules = parser.getRules();
         List<IQuery> queries = parser.getQueries();
 
         Configuration conf = new Configuration();
         conf.programOptmimisers.add(new MagicSets());
-        IKnowledgeBase knowledgeBase = new KnowledgeBase(facts, rules, conf);
-
-        StringBuilder res = new StringBuilder();
-
-        List<String> result = new ArrayList<>();
+        IKnowledgeBase knowledgeBase = null;
+        try {
+            knowledgeBase = new KnowledgeBase(facts, rules, conf);
+        } catch (EvaluationException e) {
+            result.add(e.toString());
+            return result;
+        }
 
         for (IQuery query : queries) {
             List<IVariable> variableBindings = new ArrayList<>();
-            IRelation relation = knowledgeBase.execute(query, variableBindings);
+            IRelation relation = null;
+
+            try {
+                relation = knowledgeBase.execute(query, variableBindings);
+            } catch (EvaluationException e) {
+                result.add(e.toString());
+                return result;
+            }
 
             result.add(query.toString());
             result.add(variableBindings.toString());

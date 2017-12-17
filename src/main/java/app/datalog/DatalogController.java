@@ -26,19 +26,7 @@ public class DatalogController {
             return ViewUtil.notAcceptable.handle(request, response);
         }
 
-        try {
-            List<String> result = parser.parse(datalogProgram);
-            return dataToJson(result);
-        }
-        catch (ParserException e) {
-            return ViewUtil.parseFailed.handle(request, response);
-        }
-        catch (EvaluationException e) {
-            return ViewUtil.notAcceptable.handle(request, response);
-        }
-        catch (Exception e)
-        {
-            return ViewUtil.notAcceptable.handle(request, response);
-        }
+        List<String> result = parser.parse(datalogProgram);
+        return dataToJson(result);
     };
 }

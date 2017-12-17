@@ -5,37 +5,20 @@
     <div class="container">
         <h1>IRIS Datalog Engine</h1>
 
-        <form id="program-form" method="post" enctype='multipart/form-data'>
+        <form id="program-form" method="post">
             <div class="row">
                 <label>Datalog Program</label>
-                <textarea class="u-full-width" required="required" name="datalogProgram">
-
-edge('A', 'B').
-edge('B', 'C').
-edge('A', 'E').
-edge('C', 'D').
-edge('D', 'E').
-edge('F', 'G').
-edge('E', 'G').
-
-
-node('A').
-node('B').
-node('C').
-node('D').
-node('E').
-node('F').
-node('G').
-
-path(?x, ?y) :- edge(?x, ?y).
-path(?x, ?y) :- edge(?x, ?z),
-                path(?z, ?y).
-
-?- path(?x, ?y).
-
-                </textarea>
+                <textarea class="u-full-width" required="required" name="datalogProgram" id="program-input"></textarea>
             </div>
-            <input class="button-primary" type="submit" value="Parse Program"/>
+            <div class="row">
+                <div class="six columns">
+                    <input class="button-primary" type="submit" value="Parse Program"/>
+                </div>
+
+                <div class="six columns">
+                    <input class="button u-pull-right" type="button" value="Sample" id="add-sample-program">
+                </div>
+            </div>
         </form>
 
         <div class="row">
@@ -43,8 +26,10 @@ path(?x, ?y) :- edge(?x, ?z),
             <textarea id="program-result" class="u-full-width" required="required" readonly="readonly"></textarea>
         </div>
 
+
+
     </div>
 </div>
 
-<script src="/js/index.js"></script>
+<script src="/datalog/js/index.js"></script>
 #end
