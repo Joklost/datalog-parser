@@ -5,6 +5,7 @@ Web Application to interface with the IRIS Datalog engine.
 The following enviroment variables are required to use HTTPS, as well as a generating a KeyStore file.
 
 `export PISSWORD=<password>`
+
 `export KEYSTORE=~/KeyStore.jks`
 
 Use the password set in the enviroment variable when asked for a password by the keytool.
