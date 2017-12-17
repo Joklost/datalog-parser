@@ -4,7 +4,7 @@
 }
 
 a {
-    padding-left: 15px;
+    padding-left: 25px;
 }
 
 a:link {
@@ -23,11 +23,9 @@ a:active {
     text-decoration: underline;
 }
 
-textarea{
-    resize: vertical;
-    min-height: 400px;
-    background: url(https://i.imgur.com/2cOaJ.png) no-repeat local;
-    padding-left: 35px;
-    padding-top: 10px;
-    border-color:#ccc;
+.editor {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
 }

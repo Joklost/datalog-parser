@@ -5,31 +5,29 @@
     <div class="container">
         <h1>IRIS Datalog Engine</h1>
 
-        <form id="program-form" method="post">
-            <div class="row">
-                <div class="nine columns">
-                    <label>Datalog Program</label>
-                </div>
-                <div class="three columns">
-                    <a class="u-pull-right" href="/datalog/user_guide.pdf">User Guide</a>
-                    <a class="u-pull-right" href="https://github.com/Joklost/datalog-parser">Source</a>
-                </div>
-                <textarea class="u-full-width" required="required" name="datalogProgram" id="program-input"></textarea>
+        <div class="row">
+            <div class="four columns">
+                <label>Datalog Program</label>
             </div>
-            <div class="row">
-                <div class="six columns">
-                    <input class="button-primary" type="submit" value="Parse Program"/>
-                </div>
+            <div class="eight columns">
+                <a class="u-pull-right" href="/datalog/user_guide.pdf">User Guide</a>
+                <a class="u-pull-right" href="https://github.com/Joklost/datalog-parser">Source</a>
+                <a class="u-pull-right" href="#" id="sample-program">Sample</a>
+            </div>
 
-                <div class="six columns">
-                    <input class="button u-pull-right" type="button" value="Sample" id="add-sample-program">
-                </div>
-            </div>
-        </form>
+            <div class="editor" id="input"></div>
+            #*<textarea class="u-full-width" required="required" id="program-input"></textarea>*#
+        </div>
+
+        <div class="row">
+            <input class="button-primary" type="button" value="Parse Program" id="parse-program"/>
+        </div>
 
         <div class="row">
             <label>Output</label>
-            <textarea id="program-result" class="u-full-width" required="required" readonly="readonly"></textarea>
+
+            <div class="editor" id="output"></div>
+            #*<textarea id="program-result" class="u-full-width" required="required" readonly="readonly"></textarea>*#
         </div>
 
 

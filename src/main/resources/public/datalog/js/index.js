@@ -1,6 +1,5 @@
 "use strict";
 
-let $viewSpace = $("#viewSpace");
 
 let sampleProgram = "edge('A', 'B').\n" +
     "edge('B', 'C').\n" +
@@ -26,22 +25,31 @@ let sampleProgram = "edge('A', 'B').\n" +
     "?- path(?x, ?y).";
 
 
-$("#program-form").on("submit", function (ev) {
+$("#parse-program").on("click", function (ev) {
     ev.preventDefault();
-    let form = new FormData(this);
-    let program = form.get("datalogProgram");
+    //let program = $("#program-input").text();
+    let program = inputEditor.getSession().getValue();
+    if (!program) return;
+
     $.get("/datalog/parse/?program=" + program.toString(), function (data) {
-        let resultArea = $("#program-result");
-        resultArea.text("");
+        let result = "";
         let arr = JSON.parse(data);
 
         for (let i = 0; i < arr.length; i++) {
-            resultArea.append(arr[i].toString() + "\n");
+            result += arr[i].toString() + "\n";
         }
-
+        outputEditor.getSession().setValue(result);
     });
 });
 
-$("#add-sample-program").on("click", function () {
-    $("#program-input").text(sampleProgram);
+
+
+$("#sample-program").on("click", function (ev) {
+    ev.preventDefault();
+    inputEditor.getSession().setValue(sampleProgram);
 });
+
+let inputEditor = ace.edit("input");
+inputEditor.$blockScrolling = Infinity;
+let outputEditor = ace.edit("output");
+outputEditor.$blockScrolling = Infinity;
