@@ -2,7 +2,14 @@
 <html>
 <head>
     <title>$msg.get("COMMON_TITLE")</title>
-    <link rel="icon" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/datalog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/datalog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/datalog/favicon-16x16.png">
+    <link rel="manifest" href="/datalog/manifest.json">
+    <link rel="mask-icon" href="/datalog/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/datalog/favicon.ico">
+    <meta name="msapplication-config" content="/datalog/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js"></script>
