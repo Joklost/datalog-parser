@@ -13,6 +13,7 @@ import org.deri.iris.compiler.ParserException;
 import org.deri.iris.optimisations.magicsets.MagicSets;
 import org.deri.iris.storage.IRelation;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,9 @@ public class DatalogParser {
 
         List<String> result = new ArrayList<>();
         try {
-            parser.parse(program);
+            StringReader reader = new StringReader(program);
+
+            parser.parse(reader);
         } catch (ParserException e) {
             result.add(e.toString());
             return result;
