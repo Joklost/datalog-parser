@@ -1,0 +1,50 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+
+<div id="viewspace">
+    <div class="container">
+        <h1>IRIS Datalog Engine</h1>
+
+        <form id="program-form" method="post" enctype='multipart/form-data'>
+            <div class="row">
+                <label>Datalog Program</label>
+                <textarea class="u-full-width" required="required" name="datalogProgram">
+
+edge('A', 'B').
+edge('B', 'C').
+edge('A', 'E').
+edge('C', 'D').
+edge('D', 'E').
+edge('F', 'G').
+edge('E', 'G').
+
+
+node('A').
+node('B').
+node('C').
+node('D').
+node('E').
+node('F').
+node('G').
+
+path(?x, ?y) :- edge(?x, ?y).
+path(?x, ?y) :- edge(?x, ?z),
+                path(?z, ?y).
+
+?- path(?x, ?y).
+
+                </textarea>
+            </div>
+            <input class="button-primary" type="submit" value="Parse Program"/>
+        </form>
+
+        <div class="row">
+            <label>Output</label>
+            <textarea id="program-result" class="u-full-width" required="required" readonly="readonly"></textarea>
+        </div>
+
+    </div>
+</div>
+
+<script src="/js/index.js"></script>
+#end

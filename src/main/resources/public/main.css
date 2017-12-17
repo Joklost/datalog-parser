@@ -1,0 +1,9 @@
+
+#viewspace {
+    margin-top: 45px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 400px;
+}
