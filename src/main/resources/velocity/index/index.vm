@@ -16,7 +16,6 @@
             </div>
 
             <div class="editor" id="input"></div>
-            #*<textarea class="u-full-width" required="required" id="program-input"></textarea>*#
         </div>
 
         <div class="row">
@@ -27,10 +26,7 @@
             <label>Output</label>
 
             <div class="editor" id="output"></div>
-            #*<textarea id="program-result" class="u-full-width" required="required" readonly="readonly"></textarea>*#
         </div>
-
-
 
     </div>
 </div>
