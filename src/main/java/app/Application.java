@@ -48,31 +48,3 @@ public class Application {
         after("*", Filters.addGzipHeader);
     }
 }
-
-/*
-
-edge('A', 'B').
-edge('B', 'C').
-edge('A', 'E').
-edge('C', 'D').
-edge('D', 'E').
-edge('F', 'G').
-edge('E', 'G').
-
-
-node('A').
-node('B').
-node('C').
-node('D').
-node('E').
-node('F').
-node('G').
-
-path(?x, ?y) :- edge(?x, ?y).
-path(?x, ?y) :- edge(?x, ?z),
-                path(?z, ?y).
-
-?- path(?x, ?y).
-
-
- */
